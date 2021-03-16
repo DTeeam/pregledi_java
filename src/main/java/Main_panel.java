@@ -12,8 +12,9 @@ public class Main_panel {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                label1.setText("tsewt blockgeb");
+                String a =  dbconnect.vrniime(1);
 
+                label1.setText(a);
             }
         });
     }
