@@ -6,15 +6,23 @@ public class Main_panel {
     private JButton button1;
     private JPanel panel1;
     private JLabel label1;
+    private JTextField email_text;
+    private JTextField geslo_text;
 
 
     public Main_panel() {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String a =  dbconnect.vrniime(1);
+                String mail = email_text.getText();
+                String pass = geslo_text.getText();
 
-                label1.setText(a);
+                int idp = dbconnect.vrnipodjetjeid(mail, pass);
+
+                if(idp == 0)
+                    System.out.println( "Nedela" );
+                else
+                    System.out.println( "Dela" );
             }
         });
     }
