@@ -1,3 +1,5 @@
+import com.sun.tools.javac.Main;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +10,7 @@ public class Main_panel {
     private JLabel label1;
     private JTextField email_text;
     private JTextField geslo_text;
+    private static JFrame frame;
 
 
     public Main_panel() {
@@ -19,18 +22,22 @@ public class Main_panel {
 
                 int idp = dbconnect.vrnipodjetjeid(mail, pass);
 
-                if(idp == 0)
-                    System.out.println( "Nedela" );
-                else
-                    System.out.println( "Dela" );
+                if(idp == 0) {
+                    System.out.println("Nedela");
+                }
+                else {
+                    System.out.println("Dela");
+                    frame.dispose();
+                    Check_up_panel.main(idp);
+                }
             }
         });
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Checkup neki al neki");
+        frame = new JFrame("Frame");
         frame.setContentPane(new Main_panel().panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setSize(500,600);
         frame.setVisible(true);
