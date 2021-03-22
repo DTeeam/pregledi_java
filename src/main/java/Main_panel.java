@@ -1,5 +1,3 @@
-import com.sun.tools.javac.Main;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +18,7 @@ public class Main_panel {
                 String mail = email_text.getText();
                 String pass = geslo_text.getText();
 
-                int idp = dbconnect.vrnipodjetjeid(mail, pass);
+                int idp = dbconnect.returncompanyid(mail, pass);
 
                 if(idp == 0) {
                     System.out.println("Nedela");
